@@ -57,7 +57,16 @@ public class Tiendita {
      * Muestra la lista de productos en forma de tabla
      */
     static void verProductos() {
-        System.out.println("En construccion.");
+        if (productos.isEmpty()) {
+            System.out.println("No hay productos registrados.");
+            return;
+        }
+        System.out.println();
+        System.out.printf("%-10s %-30s %10s%n", "CODIGO", "DESCRIPCION", "PRECIO");
+        System.out.println("------------------------------------------------------");
+        for (Producto p : productos) {
+            System.out.printf("%-10s %-30s %10.2f%n", p.getCodigo(), p.getDescripcion(), p.getPrecio());
+        }
     }
 
     /**
