@@ -37,7 +37,20 @@ public class Tiendita {
      * Pide los datos de un producto y lo agrega a la lista
      */
     static void agregarProducto() {
-        System.out.println("En construccion.");
+        System.out.print("Codigo: ");
+        String codigo = teclado.nextLine().trim();
+        System.out.print("Descripcion: ");
+        String descripcion = teclado.nextLine().trim();
+        System.out.print("Precio: ");
+        double precio;
+        try {
+            precio = Double.parseDouble(teclado.nextLine().trim());
+        } catch (NumberFormatException e) {
+            System.out.println("Precio no valido, no se agrego el producto.");
+            return;
+        }
+        productos.add(new Producto(codigo, descripcion, precio));
+        System.out.println("Producto agregado.");
     }
 
     /**
