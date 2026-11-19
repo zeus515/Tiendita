@@ -51,7 +51,17 @@ public class Tiendita {
      * Pide el codigo de un producto, lo busca en la lista y muestra sus datos
      */
     static void buscarProducto() {
-        System.out.println("En construccion.");
+        System.out.print("Codigo a buscar: ");
+        String codigo = teclado.nextLine().trim();
+        for (Producto p : productos) {
+            if (p.getCodigo().equalsIgnoreCase(codigo)) {
+                System.out.println("Codigo: " + p.getCodigo());
+                System.out.println("Descripcion: " + p.getDescripcion());
+                System.out.printf("Precio: $%.2f%n", p.getPrecio());
+                return;
+            }
+        }
+        System.out.println("No se encontro un producto con el codigo " + codigo);
     }
 
 }
